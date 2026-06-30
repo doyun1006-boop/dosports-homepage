@@ -1018,21 +1018,37 @@ img {
   white-space: nowrap;
 }
 
-.map-illustration {
-  border-radius: 24px;
-  overflow: hidden;
-  border: 1px solid #e1ebfb;
-  background: #f7fbff;
-}
-
-.map-illustration svg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
 
 @media (max-width: 960px) {
   .map-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+
+/* v5: simplified location cards without rough map illustration */
+.location-note {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: #f7fbff;
+  border: 1px solid #e1ebfb;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+  font-weight: 700;
+}
+
+.map-card {
+  min-height: 0;
+}
+
+@media (max-width: 640px) {
+  .map-head {
+    display: grid;
+  }
+
+  .mini-link {
+    width: 100%;
   }
 }

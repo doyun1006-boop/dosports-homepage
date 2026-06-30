@@ -1,0 +1,17 @@
+[build]
+  publish = "public"
+
+[[redirects]]
+  from = "/link"
+  to = "/link/"
+  status = 301
+
+[[redirects]]
+  from = "/schedule"
+  to = "/schedule/"
+  status = 301
+
+[[redirects]]
+  from = "/admin"
+  to = "https://dosportstt.netlify.app/admin"
+  status = 302

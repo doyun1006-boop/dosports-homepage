@@ -301,6 +301,40 @@ section[id] { scroll-margin-top: 88px; }
 }
 .stat span { display: block; margin-top: 10px; color: var(--muted); font-weight: 700; font-size: 14px; line-height: 1.5; }
 
+/* 잠실 차량 운행 안내 */
+.shuttle {
+  border-radius: var(--radius-lg); padding: 30px;
+  background: radial-gradient(120% 120% at 0% 0%, #12305f 0%, #0a1730 62%);
+  color: #fff; box-shadow: var(--shadow);
+}
+.shuttle-head { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+.shuttle-ico {
+  width: 56px; height: 56px; border-radius: 16px; flex: none; display: grid; place-items: center;
+  font-size: 28px; background: linear-gradient(135deg, var(--gold), var(--gold-2));
+}
+.shuttle-title b { display: block; font-size: 21px; font-weight: 900; letter-spacing: -0.03em; }
+.shuttle-title span { display: block; margin-top: 4px; color: rgba(255,255,255,0.72); font-size: 13.5px; font-weight: 600; }
+.shuttle-routes { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.shuttle-routes span {
+  font-size: 13.5px; font-weight: 800; color: #eaf1ff;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.16);
+  padding: 8px 13px; border-radius: 999px;
+}
+.shuttle-note {
+  background: rgba(249,176,22,0.14); border: 1px solid rgba(249,176,22,0.32);
+  color: var(--gold-2); font-weight: 800; font-size: 14px; line-height: 1.5;
+  padding: 14px 16px; border-radius: 14px; margin-bottom: 0;
+}
+.shuttle-kakao {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  height: 52px; border-radius: 14px; background: #FEE500; color: #231a1a;
+  font-weight: 900; font-size: 15px;
+  transition: transform 0.18s var(--ease), filter 0.18s var(--ease);
+}
+.shuttle-kakao:hover { transform: translateY(-2px); filter: brightness(1.02); }
+.shuttle-kakao .btn-arrow { transition: transform 0.2s var(--ease); }
+.shuttle-kakao:hover .btn-arrow { transform: translateX(4px); }
+
 /* ---------- Programs (info-dense cards) ---------- */
 .prog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
 .prog-card {
@@ -684,7 +718,7 @@ section[id] { scroll-margin-top: 88px; }
           운동을 즐겁게 시작하고, 기초를 쌓고, 더 높은 목표에 도전하도록 이끕니다.
         </p>
         <div class="hero-actions" data-reveal>
-          <a class="btn btn-primary btn-lg" href="/link">신청·상담 바로가기<span class="btn-arrow">→</span></a>
+          <a class="btn btn-primary btn-lg" href="/link/">신규가입서 바로가기<span class="btn-arrow">→</span></a>
           <a class="btn btn-line btn-lg" href="/schedule">실시간 시간표 보기</a>
         </div>
         <div class="hero-meta" data-reveal>
@@ -719,19 +753,15 @@ section[id] { scroll-margin-top: 88px; }
             반을 안내하고, 정원을 관리해 안전하고 집중도 높은 환경을 유지합니다.
           </p>
         </div>
-        <div class="stats" data-reveal>
-          <div class="stat">
-            <b data-count="3">3</b><span>운영 종목<br />농구·축구·키즈</span>
+        <div class="shuttle" data-reveal>
+          <div class="shuttle-head">
+            <span class="shuttle-ico">🚐</span>
+            <div class="shuttle-title">
+              <b>잠실 지역 차량 운행</b>
+              <span>등·하원 차량을 안전하게 운행합니다</span>
+            </div>
           </div>
-          <div class="stat">
-            <b data-count="3">3</b><span>성장 단계<br />DO·Develop·Overcome</span>
-          </div>
-          <div class="stat">
-            <b data-count="4">4</b><span>전용 공간<br />잠실 자체 체육관</span>
-          </div>
-          <div class="stat">
-            <b>정원</b><span>소수 정예<br />반별 정원 관리</span>
-          </div>
+          <div class="shuttle-note">🛡️ 아이들의 안전을 최우선으로, 안전 운행을 약속합니다.</div>
         </div>
       </div>
     </section>

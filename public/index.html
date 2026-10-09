@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="description" content="송파구 잠실 DO SPORTS 스포츠 아카데미. 농구교실·축구교실·키즈스포츠를 단계별로 운영합니다. 실시간 시간표와 신청링크를 한눈에." />
   <meta name="theme-color" content="#0a1730" />
+  <meta name="google-site-verification" content="_APNsP9yfnwzMfgAYg1mJziJCSutjTkr_ohGK0x2qNg" />
+  <meta name="naver-site-verification" content="91e026ba50986328977cda8367a3963264c50496" />
+  <link rel="canonical" href="https://xn--2z1b60x1ucw7k8ph.com/" />
   <title>DO SPORTS ACADEMY | 디오스포츠 · 잠실 스포츠 아카데미</title>
   <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -532,6 +535,19 @@ section[id] { scroll-margin-top: 88px; }
 .field select option { color: #0a1730; }
 .field textarea { resize: vertical; min-height: 108px; }
 .btn-block { width: 100%; }
+/* 개인정보 수집·이용 동의 */
+.consent { border: 1.5px solid rgba(255,255,255,0.16); border-radius: 14px; background: rgba(255,255,255,0.04); padding: 14px 16px; font-size: 13.5px; color: rgba(255,255,255,0.78); }
+.consent-check { display: flex; align-items: flex-start; gap: 10px; font-weight: 800; color: #fff; cursor: pointer; line-height: 1.45; }
+.consent-check input { width: 18px; height: 18px; margin: 1px 0 0; flex: none; accent-color: var(--gold); cursor: pointer; }
+.consent-check em { font-style: normal; color: var(--gold-2); }
+.consent details { margin-top: 10px; }
+.consent summary { cursor: pointer; font-weight: 700; color: rgba(255,255,255,0.7); font-size: 13px; }
+.consent summary:hover { color: #fff; }
+.consent dl { margin: 10px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; line-height: 1.5; }
+.consent dt { font-weight: 800; color: rgba(255,255,255,0.86); white-space: nowrap; }
+.consent dd { margin: 0; }
+.consent p { margin: 8px 0 0; line-height: 1.5; color: rgba(255,255,255,0.6); }
+.consent a { color: var(--gold-2); text-decoration: underline; }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .form-status { margin: 2px 0 0; font-size: 14px; font-weight: 700; min-height: 1.1em; }
 .form-status.ok { color: #86f0b6; }
@@ -969,7 +985,7 @@ section[id] { scroll-margin-top: 88px; }
 
               <div class="field">
                 <label for="c-name">이름</label>
-                <input id="c-name" name="이름" type="text" required autocomplete="name" placeholder="학부모님 또는 학생 이름" />
+                <input id="c-name" name="이름" type="text" required autocomplete="name" placeholder="학부모님 또는 학생(만 14세 이상) 이름" />
               </div>
               <div class="field">
                 <label for="c-contact">연락처 · 카카오톡 ID</label>
@@ -988,6 +1004,22 @@ section[id] { scroll-margin-top: 88px; }
               <div class="field">
                 <label for="c-msg">상담 희망 내용</label>
                 <textarea id="c-msg" name="상담내용" rows="4" placeholder="희망 요일·시간, 아이 나이, 궁금한 점 등을 자유롭게 남겨주세요."></textarea>
+              </div>
+
+              <div class="consent">
+                <label class="consent-check">
+                  <input type="checkbox" name="개인정보동의" value="동의함" required />
+                  <span>개인정보 수집·이용에 동의합니다. <em>(필수)</em></span>
+                </label>
+                <details>
+                  <summary>수집·이용 내용 보기</summary>
+                  <dl>
+                    <dt>수집 항목</dt><dd>이름, 연락처(휴대폰 번호 또는 카카오톡 ID), 관심 프로그램, 상담 희망 내용</dd>
+                    <dt>이용 목적</dt><dd>수강 상담 및 문의 답변, 상담 결과 안내</dd>
+                    <dt>보유 기간</dt><dd>상담 완료 후 1년 보관 후 파기 (동의 철회 시 즉시 파기)</dd>
+                  </dl>
+                  <p>동의를 거부할 수 있으며, 거부 시 온라인 상담 신청이 제한됩니다. 이 경우 전화(02-425-3278)나 카카오톡으로 문의해 주세요. 만 14세 미만 학생은 보호자가 신청해 주세요. 자세한 내용은 <a href="/privacy/">개인정보처리방침</a>을 확인해 주세요.</p>
+                </details>
               </div>
 
               <button type="submit" class="btn btn-primary btn-lg btn-block">상담 신청 보내기<span class="btn-arrow">→</span></button>
@@ -1021,6 +1053,7 @@ section[id] { scroll-margin-top: 88px; }
       <div class="footer-meta">
         <span>🏀 삼전로 72-1 · ⚽ 석촌호수로 92</span>
         <span>02-425-3278 · 010-2145-3278</span>
+        <span><a href="/privacy/" style="color:#fff;font-weight:800;">개인정보처리방침</a></span>
         <span>© DO SPORTS. All rights reserved.</span>
       </div>
     </div>

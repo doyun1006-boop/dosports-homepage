@@ -1,6 +1,31 @@
 [build]
   publish = "public"
 
+# 옛 한글 도메인(디오스포츠.com) → 새 대표 도메인
+[[redirects]]
+  from = "https://xn--2z1b60x1ucw7k8ph.com/*"
+  to = "https://dosportsclub.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://xn--2z1b60x1ucw7k8ph.com/*"
+  to = "https://dosportsclub.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.xn--2z1b60x1ucw7k8ph.com/*"
+  to = "https://dosportsclub.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.xn--2z1b60x1ucw7k8ph.com/*"
+  to = "https://dosportsclub.com/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/link"
   to = "/link/"

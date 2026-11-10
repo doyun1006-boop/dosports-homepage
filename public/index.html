@@ -428,6 +428,13 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
 .partner p { font-size: 14px; line-height: 1.6; color: var(--sub); }
 .partner .go { margin-top: auto; padding-top: 12px; font-size: 14px; font-weight: 700; color: var(--acc-text); }
 
+.partners { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.partner-logo { padding: 16px; display: flex; align-items: center; gap: 12px; min-height: 72px; }
+.partner-logo .mono { flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--inner); color: var(--acc-text); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 900; font-size: 16px; }
+.partner-logo b { flex: 1; font-size: 15px; }
+.partner-logo svg.i { width: 18px; height: 18px; color: var(--muted); }
+@media (min-width: 900px) { .partners { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
 /* ---------- Desktop ---------- */
 @media (min-width: 900px) {
   :root { --header-h: 72px; }
@@ -613,7 +620,6 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
         <a href="https://www.instagram.com/dosports.official" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-insta"/></svg>@dosports.official</a>
         <a href="http://pf.kakao.com/_rxjYLb/chat" target="_blank" rel="noopener">카카오톡 채널</a>
         <a href="https://blog.naver.com/do_sports" target="_blank" rel="noopener">블로그</a>
-        <a href="https://iuneo.com" target="_blank" rel="noopener">유네오 모집반</a>
         <a href="/together" data-tab="together">채용 · 가맹 · 제휴</a>
       </div>
     </div>
@@ -820,6 +826,18 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
       <span class="go">카카오톡으로 제안하기 →</span>
     </a>
   </div>
+
+  <section aria-labelledby="partners-title" style="display:flex;flex-direction:column;gap:14px">
+    <div class="sec-head">
+      <div><div class="eyebrow">PARTNERS</div><h2 id="partners-title">제휴 업체</h2></div>
+    </div>
+    <div class="partners">
+      <a class="card partner-logo" href="https://iuneo.com" target="_blank" rel="noopener"><span class="mono">유</span><b>유네오</b><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></a>
+      <div class="card partner-logo"><span class="mono">송</span><b>송파구농구협회</b></div>
+      <div class="card partner-logo"><span class="mono">S</span><b>잠실스와트</b></div>
+      <div class="card partner-logo"><span class="mono">B</span><b>블랙라벨스포츠</b></div>
+    </div>
+  </section>
 </section>
 
 <!-- =================== 문의 =================== -->

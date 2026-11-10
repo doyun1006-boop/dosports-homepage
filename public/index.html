@@ -428,12 +428,16 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
 .partner p { font-size: 14px; line-height: 1.6; color: var(--sub); }
 .partner .go { margin-top: auto; padding-top: 12px; font-size: 14px; font-weight: 700; color: var(--acc-text); }
 
-.partners { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.partner-logo { padding: 16px; display: flex; align-items: center; gap: 12px; min-height: 72px; }
-.partner-logo .mono { flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--inner); color: var(--acc-text); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 900; font-size: 16px; }
-.partner-logo b { flex: 1; font-size: 15px; }
-.partner-logo svg.i { width: 18px; height: 18px; color: var(--muted); }
-@media (min-width: 900px) { .partners { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.marquee { overflow: hidden; border-radius: 18px; background: var(--surface); padding: 18px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.marquee-track { list-style: none; margin: 0; padding: 0; display: flex; gap: 14px; width: max-content; animation: marquee 36s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.pchip { flex: none; display: flex; align-items: center; gap: 12px; padding: 10px 18px 10px 10px; border-radius: 14px; background: var(--inner); }
+.p-logo { flex: none; height: 44px; min-width: 44px; padding: 0 12px; border-radius: 10px; background: var(--text); color: var(--bg); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 900; font-size: 12px; letter-spacing: 1px; white-space: nowrap; }
+.p-logo img { height: 32px; width: auto; }
+.pchip b { font-size: 15px; white-space: nowrap; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; flex-wrap: wrap; width: auto; padding: 0 16px; } .pchip[aria-hidden="true"] { display: none; } }
 
 /* ---------- Desktop ---------- */
 @media (min-width: 900px) {
@@ -831,11 +835,9 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
     <div class="sec-head">
       <div><div class="eyebrow">PARTNERS</div><h2 id="partners-title">제휴 업체</h2></div>
     </div>
-    <div class="partners">
-      <a class="card partner-logo" href="https://iuneo.com" target="_blank" rel="noopener"><span class="mono">유</span><b>유네오</b><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></a>
-      <div class="card partner-logo"><span class="mono">송</span><b>송파구농구협회</b></div>
-      <div class="card partner-logo"><span class="mono">S</span><b>잠실스와트</b></div>
-      <div class="card partner-logo"><span class="mono">B</span><b>블랙라벨스포츠</b></div>
+    <div class="marquee" aria-label="제휴 업체 목록">
+      <ul class="marquee-track"><li class="pchip"><span class="p-logo" data-partner="IUNEO">IUNEO</span><b>유네오</b></li><li class="pchip"><span class="p-logo" data-partner="SONGPA BASKETBALL">SONGPA BASKETBALL</span><b>송파구농구협회</b></li><li class="pchip"><span class="p-logo" data-partner="JAMSIL SWAT">JAMSIL SWAT</span><b>잠실스와트</b></li><li class="pchip"><span class="p-logo" data-partner="BLACK LABEL SPORTS">BLACK LABEL SPORTS</span><b>블랙라벨스포츠</b></li><li class="pchip" aria-hidden="true"><span class="p-logo" data-partner="IUNEO">IUNEO</span><b>유네오</b></li><li class="pchip" aria-hidden="true"><span class="p-logo" data-partner="SONGPA BASKETBALL">SONGPA BASKETBALL</span><b>송파구농구협회</b></li><li class="pchip" aria-hidden="true"><span class="p-logo" data-partner="JAMSIL SWAT">JAMSIL SWAT</span><b>잠실스와트</b></li><li class="pchip" aria-hidden="true"><span class="p-logo" data-partner="BLACK LABEL SPORTS">BLACK LABEL SPORTS</span><b>블랙라벨스포츠</b></li><li class="pchip" aria-hidden="true"><span class="p-logo" data-partner="IUNEO">IUNEO</span><b>유네오</b></li><li class="pchip" aria-hidden="true"><span class="p-logo" data-partner="SONGPA BASKETBALL">SONGPA BASKETBALL</span><b>송파구농구협회</b></li><li class="pchip" aria-hidden="true"><span class="p-logo" data-partner="JAMSIL SWAT">JAMSIL SWAT</span><b>잠실스와트</b></li><li class="pchip" aria-hidden="true"><span class="p-logo" data-partner="BLACK LABEL SPORTS">BLACK LABEL SPORTS</span><b>블랙라벨스포츠</b></li><li class="pchip" aria-hidden="true"><span class="p-logo" data-partner="IUNEO">IUNEO</span><b>유네오</b></li><li class="pchip" aria-hidden="true"><span class="p-logo" data-partner="SONGPA BASKETBALL">SONGPA BASKETBALL</span><b>송파구농구협회</b></li><li class="pchip" aria-hidden="true"><span class="p-logo" data-partner="JAMSIL SWAT">JAMSIL SWAT</span><b>잠실스와트</b></li><li class="pchip" aria-hidden="true"><span class="p-logo" data-partner="BLACK LABEL SPORTS">BLACK LABEL SPORTS</span><b>블랙라벨스포츠</b></li></ul>
+    </div>
     </div>
   </section>
 </section>

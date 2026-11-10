@@ -458,12 +458,27 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; flex-wrap: wrap; width: auto; padding: 0 16px; } .pchip[aria-hidden="true"] { display: none; } }
 
+/* Mobile menu sheet */
+.sheet-backdrop { position: fixed; inset: 0; z-index: 40; background: rgba(0,0,0,0.45); }
+.sheet { position: fixed; top: 0; right: 0; bottom: 0; z-index: 41; width: min(320px, 86vw); background: var(--bg); padding: calc(12px + env(safe-area-inset-top)) 16px 24px; display: flex; flex-direction: column; gap: 16px; overflow-y: auto; box-shadow: -8px 0 24px rgba(0,0,0,0.2); }
+.sheet[hidden], .sheet-backdrop[hidden] { display: none; }
+.sheet-head { display: flex; align-items: center; justify-content: space-between; padding-left: 4px; }
+.sheet-head b { font-size: 17px; }
+.sheet-links { display: flex; flex-direction: column; }
+.sheet-links a { min-height: 52px; padding: 0 12px; border-radius: 12px; display: flex; align-items: center; font-size: 16px; font-weight: 700; }
+.sheet-links a[aria-current="page"] { background: var(--surface2); color: var(--acc-text); }
+.sheet-sub { border-top: 1px solid var(--line); padding-top: 12px; display: flex; flex-direction: column; }
+.sheet-sub a { min-height: 44px; padding: 0 12px; display: flex; align-items: center; font-size: 14px; color: var(--sub); }
+body.sheet-open { overflow: hidden; }
+@media (max-width: 899px) { .theme-btn span { display: none; } .theme-btn { width: 44px; padding: 0; justify-content: center; } .header-actions { gap: 6px; } }
+
 /* ---------- Desktop ---------- */
 @media (min-width: 900px) {
   :root { --header-h: 72px; }
   body { padding-bottom: 0; }
   .tabbar { display: none; }
   .top-nav, .cta-apply { display: flex; }
+  .menu-btn { display: none; }
   .header-inner { padding: 0 40px; }
   .view { padding: 36px 40px 64px; gap: 44px; }
   .view-head h1 { font-size: 32px; }
@@ -512,6 +527,8 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
   <symbol id="i-insta" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
   <symbol id="i-news" viewBox="0 0 24 24"><path d="M4 4h13a2 2 0 0 1 2 2v12a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2z"/><path d="M8 8h7M8 12h7M8 16h4"/></symbol>
   <symbol id="i-hand" viewBox="0 0 24 24"><path d="M16 11V5a2 2 0 0 0-4 0v1M12 6V4a2 2 0 0 0-4 0v7M8 10V7a2 2 0 0 0-4 0v7a8 8 0 0 0 16 0v-3a2 2 0 0 0-4 0"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
   <symbol id="i-van" viewBox="0 0 24 24"><path d="M3 17V7a2 2 0 0 1 2-2h11l5 5v7"/><path d="M3 17h18"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
 </svg>
 
@@ -540,9 +557,30 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
       </button>
       <a class="cta-apply" href="/apply" data-tab="apply">신청하기</a>
       <a class="icon-btn" href="tel:024253278" aria-label="전화 상담 02-425-3278"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg></a>
+      <button type="button" class="icon-btn menu-btn" data-menu-open aria-label="전체 메뉴 열기" aria-expanded="false" aria-controls="sheet"><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg></button>
     </div>
   </div>
 </header>
+
+<div class="sheet-backdrop" data-menu-close hidden></div>
+<nav class="sheet" id="sheet" aria-label="전체 메뉴" hidden>
+  <div class="sheet-head"><b>전체 메뉴</b><button type="button" class="icon-btn" data-menu-close aria-label="메뉴 닫기"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+  <div class="sheet-links">
+    <a href="/" data-tab="home">홈</a>
+    <a href="/apply" data-tab="apply">신청</a>
+    <a href="/schedule" data-tab="schedule">실시간 시간표</a>
+    <a href="/programs" data-tab="programs">프로그램</a>
+    <a href="/news" data-tab="news">소식 · 공지사항</a>
+    <a href="/contact" data-tab="contact">문의 · 위치</a>
+    <a href="/together" data-tab="together">함께하기 (채용 · 가맹 · 제휴)</a>
+  </div>
+  <div class="sheet-sub">
+    <a href="https://www.instagram.com/dosports.official" target="_blank" rel="noopener">인스타그램</a>
+    <a href="https://blog.naver.com/do_sports" target="_blank" rel="noopener">블로그</a>
+    <a href="http://pf.kakao.com/_rxjYLb/chat" target="_blank" rel="noopener">카카오톡 상담</a>
+    <a href="/privacy/">개인정보처리방침</a>
+  </div>
+</nav>
 
 <main>
 
@@ -623,6 +661,16 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
           </div>
         </div>
       </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="home-partners" style="display:flex;flex-direction:column;gap:14px">
+    <div class="sec-head">
+      <div><div class="eyebrow">PARTNERS</div><h2 id="home-partners">함께하는 곳</h2></div>
+      <a class="more" href="/together" data-tab="together">채용 · 가맹 · 제휴 문의 →</a>
+    </div>
+    <div class="marquee" aria-label="제휴 업체 목록">
+      <ul class="marquee-track"><li class="pchip"><span class="p-logo"><img src="/assets/partner-iuneo.webp" alt="유네오 로고" width="160" height="160" loading="lazy" /></span><b>유네오</b></li><li class="pchip"><span class="p-logo"><img src="/assets/partner-songpa.webp" alt="송파구농구협회 로고" width="164" height="160" loading="lazy" /></span><b>송파구농구협회</b></li><li class="pchip"><span class="p-logo"><img src="/assets/partner-swat.webp" alt="잠실스와트 로고" width="471" height="160" loading="lazy" /></span><b>잠실스와트</b></li><li class="pchip"><span class="p-logo"><img src="/assets/partner-blacklabel.webp" alt="블랙라벨스포츠 로고" width="509" height="160" loading="lazy" /></span><b>블랙라벨스포츠</b></li><li class="pchip" aria-hidden="true"><span class="p-logo"><img src="/assets/partner-iuneo.webp" alt="유네오 로고" width="160" height="160" loading="lazy" /></span><b>유네오</b></li><li class="pchip" aria-hidden="true"><span class="p-logo"><img src="/assets/partner-songpa.webp" alt="송파구농구협회 로고" width="164" height="160" loading="lazy" /></span><b>송파구농구협회</b></li><li class="pchip" aria-hidden="true"><span class="p-logo"><img src="/assets/partner-swat.webp" alt="잠실스와트 로고" width="471" height="160" loading="lazy" /></span><b>잠실스와트</b></li><li class="pchip" aria-hidden="true"><span class="p-logo"><img src="/assets/partner-blacklabel.webp" alt="블랙라벨스포츠 로고" width="509" height="160" loading="lazy" /></span><b>블랙라벨스포츠</b></li><li class="pchip" aria-hidden="true"><span class="p-logo"><img src="/assets/partner-iuneo.webp" alt="유네오 로고" width="160" height="160" loading="lazy" /></span><b>유네오</b></li><li class="pchip" aria-hidden="true"><span class="p-logo"><img src="/assets/partner-songpa.webp" alt="송파구농구협회 로고" width="164" height="160" loading="lazy" /></span><b>송파구농구협회</b></li><li class="pchip" aria-hidden="true"><span class="p-logo"><img src="/assets/partner-swat.webp" alt="잠실스와트 로고" width="471" height="160" loading="lazy" /></span><b>잠실스와트</b></li><li class="pchip" aria-hidden="true"><span class="p-logo"><img src="/assets/partner-blacklabel.webp" alt="블랙라벨스포츠 로고" width="509" height="160" loading="lazy" /></span><b>블랙라벨스포츠</b></li><li class="pchip" aria-hidden="true"><span class="p-logo"><img src="/assets/partner-iuneo.webp" alt="유네오 로고" width="160" height="160" loading="lazy" /></span><b>유네오</b></li><li class="pchip" aria-hidden="true"><span class="p-logo"><img src="/assets/partner-songpa.webp" alt="송파구농구협회 로고" width="164" height="160" loading="lazy" /></span><b>송파구농구협회</b></li><li class="pchip" aria-hidden="true"><span class="p-logo"><img src="/assets/partner-swat.webp" alt="잠실스와트 로고" width="471" height="160" loading="lazy" /></span><b>잠실스와트</b></li><li class="pchip" aria-hidden="true"><span class="p-logo"><img src="/assets/partner-blacklabel.webp" alt="블랙라벨스포츠 로고" width="509" height="160" loading="lazy" /></span><b>블랙라벨스포츠</b></li></ul>
     </div>
   </section>
 
@@ -958,7 +1006,7 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
   function show(tab) {
     views.forEach(function (v) { v.classList.toggle('is-active', v.getAttribute('data-view') === tab); });
     links.forEach(function (a) {
-      if (a.closest('.top-nav') || a.closest('.tabbar')) {
+      if (a.closest('.top-nav') || a.closest('.tabbar') || a.closest('.sheet-links')) {
         if (a.getAttribute('data-tab') === tab) a.setAttribute('aria-current', 'page');
         else a.removeAttribute('aria-current');
       }
@@ -982,6 +1030,21 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
       window.scrollTo(0, 0);
     });
   });
+
+  /* ---------- 모바일 전체 메뉴 ---------- */
+  var sheet = document.getElementById('sheet');
+  var backdrop = document.querySelector('.sheet-backdrop');
+  var openBtn = document.querySelector('[data-menu-open]');
+  function setMenu(open) {
+    sheet.hidden = !open; backdrop.hidden = !open;
+    document.body.classList.toggle('sheet-open', open);
+    openBtn.setAttribute('aria-expanded', String(open));
+    if (open) { var f = sheet.querySelector('a'); if (f) f.focus(); } else { openBtn.focus(); }
+  }
+  openBtn.addEventListener('click', function () { setMenu(true); });
+  document.querySelectorAll('[data-menu-close]').forEach(function (el) { el.addEventListener('click', function () { setMenu(false); }); });
+  sheet.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { sheet.hidden = true; backdrop.hidden = true; document.body.classList.remove('sheet-open'); openBtn.setAttribute('aria-expanded', 'false'); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !sheet.hidden) setMenu(false); });
 
   /* ---------- 소식 필터 ---------- */
   var segBtns = document.querySelectorAll('[data-filter]');

@@ -436,6 +436,7 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
 .lb .lb-next { right: 10px; top: 50%; transform: translateY(-50%); }
 .lb .lb-bar { position: absolute; left: 0; right: 0; bottom: 16px; display: flex; justify-content: center; align-items: center; gap: 14px; font-size: 14px; font-weight: 700; }
 .lb .lb-bar a { color: #fff; opacity: .8; font-weight: 500; text-decoration: underline; }
+@media (max-width: 759px) { .lb .lb-prev, .lb .lb-next { top: auto; bottom: 10px; transform: none; } .lb .lb-prev { left: 16px; } .lb .lb-next { right: 16px; } .lb .lb-bar { bottom: 22px; } }
 /* Together */
 .together-link { padding: 16px; display: flex; align-items: center; gap: 12px; }
 .together-link .t { flex: 1; display: flex; flex-direction: column; gap: 2px; }
@@ -759,7 +760,7 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
           <button type="button" class="poster" data-full="/assets/winter-2627-4-curriculum.webp" data-alt="26-27 겨울방학특강 4/5 종목·레벨별 커리큘럼" aria-label="4/5 커리큘럼 크게 보기"><img src="/assets/winter-2627-4-curriculum-thumb.webp" alt="" width="360" height="450" loading="lazy" decoding="async"><span class="pnum">4/5</span><span class="pcap">커리큘럼</span></button>
           <button type="button" class="poster" data-full="/assets/winter-2627-5-apply.webp" data-alt="26-27 겨울방학특강 5/5 신청 방법: dosportsclub.com 온라인 신청 후 상담·반 배정, 결제, 차량·수업 안내" aria-label="5/5 신청 방법 크게 보기"><img src="/assets/winter-2627-5-apply-thumb.webp" alt="" width="360" height="450" loading="lazy" decoding="async"><span class="pnum">5/5</span><span class="pcap">신청 방법</span></button>
         </div>
-        <p class="poster-hint">이미지를 누르면 크게 볼 수 있어요.</p>
+        <p class="poster-hint">옆으로 넘겨 보고, 누르면 크게 볼 수 있어요.</p>
         <ul>
           <li><b>1차</b> 4주 · 2027.1.4 ~ 1.29</li>
           <li><b>2차</b> 2주 · 2027.2.15 ~ 2.26</li>

@@ -26,15 +26,52 @@
   status = 301
   force = true
 
+# 앱형 탭 라우팅 — 모든 탭 주소는 index.html 하나가 처리
+# (기존에 공유된 /link, /schedule 주소도 그대로 신청·시간표 탭으로 열림)
+[[redirects]]
+  from = "/link/*"
+  to = "/index.html"
+  status = 200
+
 [[redirects]]
   from = "/link"
-  to = "/link/"
-  status = 301
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/apply"
+  to = "/index.html"
+  status = 200
 
 [[redirects]]
   from = "/schedule"
-  to = "/schedule/"
-  status = 301
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/schedule/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/programs"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/news"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/together"
+  to = "/index.html"
+  status = 200
 
 [[redirects]]
   from = "/admin"

@@ -64,6 +64,16 @@
   status = 200
 
 [[redirects]]
+  from = "/news"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/together"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
   from = "/admin"
   to = "https://dosportstt.netlify.app/admin"
   status = 302

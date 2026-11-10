@@ -418,6 +418,10 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
 .news-body ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }
 .news-body b { color: var(--text); }
 .news[hidden] { display: none; }
+.posters { display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 560px; }
+.posters a { display: block; border-radius: 12px; overflow: hidden; background: var(--inner); }
+.posters img { display: block; width: 100%; height: auto; }
+.poster-hint { margin: 0; font-size: 12px; color: var(--sub); }
 /* Together */
 .together-link { padding: 16px; display: flex; align-items: center; gap: 12px; }
 .together-link .t { flex: 1; display: flex; flex-direction: column; gap: 2px; }
@@ -731,9 +735,17 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
   </div>
   <div class="news-list">
 
-    <details class="news" id="n-winter" data-kind="notice">
+    <details class="news" id="n-winter" data-kind="notice" open>
       <summary><span class="ntag notice">공지</span><span class="pin">고정</span><b>26-27 겨울방학특강 신청 안내</b><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
       <div class="news-body">
+        <div class="posters">
+          <a href="/assets/winter-2627-1-info.webp" target="_blank" rel="noopener"><img src="/assets/winter-2627-1-info.webp" alt="26-27 겨울방학특강 1/5 모집 안내: 기간 1차 1.4~1.29, 2차 2.15~2.26, 종목 농구·축구·배드민턴, 60분 30,000원·80분 40,000원" width="1080" height="1350" loading="lazy" decoding="async"></a>
+          <a href="/assets/winter-2627-2-schedule.webp" target="_blank" rel="noopener"><img src="/assets/winter-2627-2-schedule.webp" alt="26-27 겨울방학특강 2/5 시간표: 농구·축구·배드민턴 시간대별 수업과 대상" width="1080" height="1350" loading="lazy" decoding="async"></a>
+          <a href="/assets/winter-2627-3-guide.webp" target="_blank" rel="noopener"><img src="/assets/winter-2627-3-guide.webp" alt="26-27 겨울방학특강 3/5 교육비·팀수업·환불 안내" width="1080" height="1350" loading="lazy" decoding="async"></a>
+          <a href="/assets/winter-2627-4-curriculum.webp" target="_blank" rel="noopener"><img src="/assets/winter-2627-4-curriculum.webp" alt="26-27 겨울방학특강 4/5 종목·레벨별 커리큘럼" width="1080" height="1350" loading="lazy" decoding="async"></a>
+          <a href="/assets/winter-2627-5-apply.webp" target="_blank" rel="noopener"><img src="/assets/winter-2627-5-apply.webp" alt="26-27 겨울방학특강 5/5 신청 방법: dosportsclub.com 온라인 신청 후 상담·반 배정, 결제, 차량·수업 안내" width="1080" height="1350" loading="lazy" decoding="async"></a>
+        </div>
+        <p class="poster-hint">이미지를 누르면 크게 볼 수 있어요.</p>
         <ul>
           <li><b>1차</b> 4주 · 2027.1.4 ~ 1.29</li>
           <li><b>2차</b> 2주 · 2027.2.15 ~ 2.26</li>

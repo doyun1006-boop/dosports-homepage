@@ -26,6 +26,19 @@
   status = 301
   force = true
 
+# 학부모 앱: 유네오(학원 관리 앱)를 디오스포츠 주소 그대로 열어요 (화면도 디오스포츠 이름으로 보여요)
+[[redirects]]
+  from = "/app/*"
+  to = "https://iuneo.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/app"
+  to = "https://iuneo.netlify.app/"
+  status = 200
+  force = true
+
 # 앱형 탭 라우팅 — 모든 탭 주소는 index.html 하나가 처리
 # (기존에 공유된 /link, /schedule 주소도 그대로 신청·시간표 탭으로 열림)
 [[redirects]]

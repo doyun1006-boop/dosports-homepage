@@ -273,6 +273,10 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
 .quick b { display: block; font-size: 18px; font-weight: 900; }
 .quick small { display: block; font-size: 12px; color: var(--sub); margin-top: 2px; }
 .quick a.primary small { color: var(--on-accent); font-weight: 500; }
+/* 학부모 앱 (출석·수강료·보강) — 유네오 기반, 디오스포츠 이름으로 열려요 */
+.quick a.app-tile { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; gap: 14px; min-height: 0; background: var(--text); color: var(--bg); }
+.quick a.app-tile small { color: inherit; opacity: .75; }
+.quick a.app-tile .go { margin-left: auto; font-size: 22px; font-weight: 900; }
 .banner { border-radius: 14px; padding: 14px 18px; background: var(--banner-bg); outline: 1px solid var(--banner-line); display: flex; align-items: center; gap: 12px; min-height: 56px; color: var(--text); }
 .badge-hot { flex: none; padding: 4px 8px; border-radius: 6px; background: var(--accent); color: var(--on-accent); font-size: 11px; font-weight: 900; }
 .banner .txt { flex: 1; display: flex; flex-direction: column; gap: 2px 14px; }
@@ -529,6 +533,7 @@ body.sheet-open { overflow: hidden; }
   <symbol id="i-hand" viewBox="0 0 24 24"><path d="M16 11V5a2 2 0 0 0-4 0v1M12 6V4a2 2 0 0 0-4 0v7M8 10V7a2 2 0 0 0-4 0v7a8 8 0 0 0 16 0v-3a2 2 0 0 0-4 0"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-kid" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.5"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></symbol>
   <symbol id="i-van" viewBox="0 0 24 24"><path d="M3 17V7a2 2 0 0 1 2-2h11l5 5v7"/><path d="M3 17h18"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
 </svg>
 
@@ -573,6 +578,7 @@ body.sheet-open { overflow: hidden; }
     <a href="/news" data-tab="news">소식 · 공지사항</a>
     <a href="/contact" data-tab="contact">문의 · 위치</a>
     <a href="/together" data-tab="together">함께하기 (채용 · 가맹 · 제휴)</a>
+    <a href="/app/">학부모 앱 (출석 · 수강료 · 보강)</a>
   </div>
   <div class="sheet-sub">
     <a href="https://www.instagram.com/dosports.official" target="_blank" rel="noopener">인스타그램</a>
@@ -601,6 +607,7 @@ body.sheet-open { overflow: hidden; }
       <a href="/schedule" data-tab="schedule"><svg class="i" aria-hidden="true"><use href="#i-cal"/></svg><span><b>실시간 시간표</b><small>남은 자리 확인</small></span></a>
       <a href="/contact" data-tab="contact"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg><span><b>상담하기</b><small>전화 · 카톡 · 문의</small></span></a>
       <a href="/programs" data-tab="programs"><svg class="i" aria-hidden="true"><use href="#i-ball"/></svg><span><b>프로그램 안내</b><small>농구 · 축구 · 키즈</small></span></a>
+      <a class="app-tile" href="/app/"><svg class="i" aria-hidden="true"><use href="#i-kid"/></svg><span><b>우리 아이 · 학부모 앱</b><small>출석 · 수강료 납부 · 보강 신청 · 칭찬도장</small></span><span class="go" aria-hidden="true">›</span></a>
     </div>
   </div>
 
@@ -977,6 +984,7 @@ body.sheet-open { overflow: hidden; }
   <a href="/schedule" data-tab="schedule"><svg class="i" aria-hidden="true"><use href="#i-cal"/></svg>시간표</a>
   <a href="/news" data-tab="news"><svg class="i" aria-hidden="true"><use href="#i-news"/></svg>소식</a>
   <a href="/contact" data-tab="contact"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg>문의</a>
+  <a href="/app/"><svg class="i" aria-hidden="true"><use href="#i-kid"/></svg>우리아이</a>
 </nav>
 
 <script>

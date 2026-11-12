@@ -312,6 +312,10 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
 .foot-links svg.i { width: 16px; height: 16px; }
 .legal { font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; }
 .legal a { text-decoration: underline; }
+.legal.biz { flex-direction: column; gap: 2px; line-height: 1.6; }
+.fee-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+.fee-table th, .fee-table td { border-bottom: 1px solid var(--line, #e5e7eb); padding: 8px 6px; text-align: left; vertical-align: top; }
+.fee-table td:last-child, .fee-table th:last-child { text-align: right; white-space: nowrap; font-weight: 700; }
 
 /* Apply */
 .form-group { display: flex; flex-direction: column; gap: 10px; }
@@ -698,7 +702,11 @@ body.sheet-open { overflow: hidden; }
         <a href="/together" data-tab="together">채용 · 가맹 · 제휴</a>
       </div>
     </div>
-    <div class="legal"><a href="/privacy/">개인정보처리방침</a><span>© DO SPORTS. All rights reserved.</span></div>
+    <div class="legal biz">
+      <span><b>디오스포츠 농구교실</b> · 대표 권도윤 · 사업자등록번호 869-10-01620 · 서울특별시 송파구 삼전로 72-1, 지하1층(삼전동) · 02-425-3278</span>
+      <span><b>디오스포츠 축구교실 잠실점 (DO FC)</b> · 대표 권도윤 · 사업자등록번호 213-20-03367 · 서울특별시 송파구 석촌호수로 92, 지하1층(잠실동, 제우빌딩) · 02-420-3278</span>
+    </div>
+    <div class="legal"><a href="/privacy/">개인정보처리방침</a><a href="/refund/">환불규정</a><span>© DO SPORTS. All rights reserved.</span></div>
   </footer>
 </section>
 
@@ -784,7 +792,22 @@ body.sheet-open { overflow: hidden; }
       <div><b>DEVELOP</b><span>심화·특강</span></div>
       <div><b>OVERCOME</b><span>대표반</span></div>
     </div>
-    <p>정규반(DO) 월 4회 · 평일 60분 10만원 · 주말 70분 12만원</p>
+    <p>정규반(DO) 월 4회 · 주 1회 기준</p>
+  </div>
+  <div class="card fee" id="fee">
+    <h2>수강료 안내 <span style="font-size:13px;font-weight:600;color:var(--muted)">(월 4회 · 주 1회 · 부가세 없음)</span></h2>
+    <table class="fee-table">
+      <thead><tr><th>프로그램</th><th>반</th><th>월 수강료</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="2"><b>농구교실</b></td><td>평일반 (60분)</td><td>110,000원</td></tr>
+        <tr><td>주말반 (70분)</td><td>130,000원</td></tr>
+        <tr><td rowspan="3"><b>축구교실</b></td><td>초등부 평일반</td><td>110,000원</td></tr>
+        <tr><td>유치부 (5~7세)</td><td>120,000 ~ 130,000원</td></tr>
+        <tr><td>주말반</td><td>130,000원</td></tr>
+        <tr><td><b>키즈 스포츠</b></td><td>인라인 · 배드민턴 · 통합반</td><td>130,000원</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px;color:var(--muted)">반·학교 연계반에 따라 금액이 다를 수 있어요. 형제·차량 미이용 할인은 상담 때 안내해 드려요. 수강료는 학원 앱 청구서에서 카드 또는 계좌이체로 낼 수 있어요.</p>
   </div>
   <a class="btn-accent inline" href="/apply" data-tab="apply">이 프로그램 신청하기</a>
 </section>

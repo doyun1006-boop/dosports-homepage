@@ -830,6 +830,30 @@ body.sheet-open { overflow: hidden; }
       </div>
     </details>
 
+    <details class="news" id="n-class-2026-12" data-kind="notice" open>
+      <summary><span class="ntag notice">공지</span><b>2026년 12월 수업 안내</b><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+      <div class="news-body">
+        <div class="posters" aria-label="12월 수업 안내 이미지 2장">
+          <button type="button" class="poster" data-full="/assets/class-2026-12-1-cover.webp" data-alt="2026년 12월 수업 안내 1/2 표지" aria-label="1/2 표지 크게 보기"><img src="/assets/class-2026-12-1-cover-thumb.webp" alt="" width="360" height="450" loading="lazy" decoding="async"><span class="pnum">1/2</span><span class="pcap">12월 수업</span></button>
+          <button type="button" class="poster" data-full="/assets/class-2026-12-2-calendar.webp" data-alt="2026년 12월 수업 일정 2/2 요일별 수업 날짜 달력" aria-label="2/2 수업 일정 크게 보기"><img src="/assets/class-2026-12-2-calendar-thumb.webp" alt="" width="360" height="450" loading="lazy" decoding="async"><span class="pnum">2/2</span><span class="pcap">수업 일정</span></button>
+        </div>
+        <p class="poster-hint">옆으로 넘겨 보고, 누르면 크게 볼 수 있어요.</p>
+        <ul>
+          <li><b>월요일</b> 12월 7일 · 14일 · 21일 · 28일</li>
+          <li><b>화요일</b> 12월 1일 · 8일 · 15일 · 22일</li>
+          <li><b>수요일</b> 12월 2일 · 9일 · 16일 · 23일</li>
+          <li><b>목요일</b> 12월 3일 · 10일 · 17일 · 24일</li>
+          <li><b>금요일</b> 12월 4일 · 11일 · 18일 · 25일</li>
+          <li><b>토요일</b> 12월 5일 · 12일 · 19일 · 26일</li>
+          <li><b>일요일</b> 12월 6일 · 13일 · 20일 · 27일</li>
+        </ul>
+        <ul>
+          <li>12월 25일(금) 성탄절도 정상 수업합니다.</li>
+          <li>11월 30일(월), 12월 29일(화)~31일(목)은 수업이 없습니다.</li>
+        </ul>
+      </div>
+    </details>
+
     <details class="news" id="n-building" data-kind="notice">
       <summary><span class="ntag notice">공지</span><b>농구교실 건물 안내</b><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
       <div class="news-body">
@@ -1109,7 +1133,7 @@ body.sheet-open { overflow: hidden; }
   }
 })();
 </script>
-<dialog class="lb" id="poster-lb" aria-label="겨울방학특강 안내 이미지 크게 보기">
+<dialog class="lb" id="poster-lb" aria-label="안내 이미지 크게 보기">
   <img alt="">
   <button type="button" class="lb-close" aria-label="닫기">&times;</button>
   <button type="button" class="lb-prev" aria-label="이전 이미지">&lsaquo;</button>
@@ -1118,11 +1142,16 @@ body.sheet-open { overflow: hidden; }
 </dialog>
 <script>
 (function () {
-  var items = Array.prototype.slice.call(document.querySelectorAll('.poster[data-full]'));
+  var all = Array.prototype.slice.call(document.querySelectorAll('.poster[data-full]'));
   var lb = document.getElementById('poster-lb');
-  if (!items.length || !lb) return;
+  if (!all.length || !lb) return;
+  var items = all;
   var img = lb.querySelector('img'), count = lb.querySelector('.lb-count'), orig = lb.querySelector('.lb-orig');
   var idx = 0, n = items.length;
+  function group(b) {
+    var box = b.closest('.posters');
+    return box ? Array.prototype.slice.call(box.querySelectorAll('.poster[data-full]')) : all;
+  }
   function show(i) {
     idx = (i + n) % n;
     var src = items[idx].getAttribute('data-full');
@@ -1130,10 +1159,11 @@ body.sheet-open { overflow: hidden; }
     count.textContent = (idx + 1) + ' / ' + n; orig.href = src;
     [idx + 1, idx - 1].forEach(function (j) { var p = new Image(); p.src = items[(j + n) % n].getAttribute('data-full'); });
   }
-  items.forEach(function (b, i) {
+  all.forEach(function (b) {
     b.addEventListener('click', function () {
       if (typeof lb.showModal !== 'function') { window.open(b.getAttribute('data-full'), '_blank'); return; }
-      show(i); lb.showModal(); document.body.style.overflow = 'hidden';
+      items = group(b); n = items.length;
+      show(items.indexOf(b)); lb.showModal(); document.body.style.overflow = 'hidden';
     });
   });
   lb.addEventListener('close', function () { document.body.style.overflow = ''; });
